@@ -26,7 +26,7 @@ def places_visited(request):
 def place_is_visited(request):
     if request.method == 'POST':
         pk = request.POST.get('pk')
-        place = get_list_or_404(Place, pk=pk)
+        place = Place.objects.get(pk=pk)
         place.visited = True
         place.save()
 
